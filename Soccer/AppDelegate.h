@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OnlineViewController.h"
+#import "MainMenuViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    MainMenuViewController *viewController;
+   }
++(AppDelegate *)sharedInstance;
+@property (nonatomic, retain) MainMenuViewController *viewController;
 
 @property (strong, nonatomic) UIWindow *window;
 

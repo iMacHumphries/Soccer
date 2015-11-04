@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MainMenuViewController.h"
+#import "GCHelper.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +16,17 @@
 
 @implementation AppDelegate
 
+static AppDelegate *sharedDelegate = nil;
++(AppDelegate *)sharedInstance{
+    if (!sharedDelegate)
+        sharedDelegate = [[AppDelegate alloc]init];
+    return sharedDelegate;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+     [[GCHelper sharedInstance] authenticateLocalUser];
+    
     return YES;
 }
 
